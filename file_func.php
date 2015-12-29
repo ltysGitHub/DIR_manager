@@ -1,4 +1,7 @@
 <?php
+/**
+ * 
+ */
 function file_size($size){
 	$arr = array("B","KB","MB","GB","TB","EB");
 	$i=0;
@@ -8,4 +11,5 @@ function file_size($size){
 	}
 	return round($size,2).$arr[$i];
 }
+
 ?>
