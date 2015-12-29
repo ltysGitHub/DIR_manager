@@ -14,7 +14,4 @@ function readDirectory($path){
 	closedir($handle);
 	return $arr;
 }
-
-print_r(readDirectory("testdir"));
-
 ?>
