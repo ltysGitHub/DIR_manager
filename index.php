@@ -14,16 +14,10 @@
 <?php
 if(isset($_GET['action'])&&$_GET['action']==="show_content"){
 	$content=file_get_contents(urldecode($_GET['filename']));
-	try{
-		$name_enc=mb_detect_encoding($content,array("GB2312","GBK","UTF-8","BIG5"),false);
-		if($name_enc)
-			$content=iconv($name_enc,'UTF-8//IGNORE',$content);
-		echo $content;
-	}
-	catch(Exception $e){
-		echo $e->getMessage();
-		echo "无法打开文件";
-	}
+	$name_enc=mb_detect_encoding($content,array("GB2312","GBK","UTF-8","BIG5"),false);
+	if($name_enc)
+		$content=iconv($name_enc,'UTF-8//IGNORE',$content);
+	echo $content;
 }
 ?>
 <table width="100%" border="1px" cellpadding="2" cellspacing="0" bgcolor="#ABCDEF" align="center">
@@ -39,7 +33,7 @@ if(isset($_GET['action'])&&$_GET['action']==="show_content"){
 		<td>修改</td>
 		<td>删除</td>
 	</tr>
-<?php 
+<?php
 	$i=1;
 	foreach($arr as $key=>$array){
 ?>
